@@ -1,0 +1,16 @@
+{
+  "name": "z-music",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "webpack": "^4.5.0"
+  }
+}
