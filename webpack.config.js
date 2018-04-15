@@ -8,9 +8,9 @@ ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
 module.exports = {
-    entry: path.resolve(__dirname, ' /src/js/zMusic.js '),
+    entry: path.resolve(__dirname, 'src/js/zMusic.js'),
     output: {
-        path:path.resolve(__dirname, '/dist'),//__dirname获取当前模块的绝对路径
+        path:path.resolve(__dirname, 'dist'),//__dirname获取当前模块的绝对路径
         filename: 'zMusic.min.js'
     },
     // resolve: {

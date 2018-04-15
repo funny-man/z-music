@@ -1,2 +1,2 @@
 ## Z-music
-你好
+终于配置好了webpack
