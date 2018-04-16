@@ -1,6 +1,6 @@
 
 const webpack = require("webpack"),
-      path = require("path")
+    path = require("path")
 
 // CopyWebpackPlugin = require('copy-webpack-plugin'),
 ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -10,9 +10,14 @@ ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: path.resolve(__dirname, 'src/js/zMusic.js'),
     output: {
-        path:path.resolve(__dirname, 'dist'),//__dirname获取当前模块的绝对路径
+        path: path.resolve(__dirname, 'dist'),//__dirname获取当前模块的绝对路径
+        //包规范格式
+        libraryTarget: 'umd',
+        library: "zMusic",
+        umdNamedDefine: true,
         filename: 'zMusic.min.js'
     },
+    devtool: 'source-map',
     // resolve: {
     //     alias: {
     //         test: path.resolve(__dirname, 'test/test.js')
@@ -27,6 +32,9 @@ module.exports = {
         //     contentImage: path.resolve(process.cwd(), './img/avatar.jpeg'),
         //     alwaysNotify: true
         // }),
+        new webpack.HotModuleReplacementPlugin({
+            // Options...
+        }),
         new ExtractTextPlugin({
             filename: "[name].css",
             disable: false,

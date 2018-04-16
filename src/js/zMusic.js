@@ -1,6 +1,6 @@
-// require('../sass/style.scss')
+//require('../sass/style.scss')
+import sass from '../sass/style.scss'
 
-
-console.log(1)
+console.log('nihaoa')
 require('./public')
 require('./template')

@@ -1,13 +1,28 @@
-html,
-body {
-    margin: 0;
-    padding: 0;
+
+// 配色方案
+//const
+$white:#FFF;                             //主白
+$red:#ff6e95;                            //主红
+$bgc:#ffeff5;                            //背景
+$translucent:rgba(255,255,255,0.4);      //播放面板半透明
+$line:#EBEBF2;                           //进度条
+$line_loading:#ff6e95;                   //加载进度条
+$font-1:#788389;                         //字体1
+$font-2:#dcd7db;                         //字体2
+$font-3:#e9c3d1;                         //字体3
+$btn:#d9dcdf;                            //按钮
+$btn_hover:#d9dcdf;                      //按钮悬停
+
+//css
+/* ct做一个媒体查询 其他所有内容都更具ct定位 */
+#ct{
     width: 100%;
     height: 100%;
-    background-color:#ffeff5;
+    background-color: $bgc;
+    padding: 1px;
 }
-div{
-    width: 100px;
-    height: 100px;
-    background-color: rgb(252, 92, 118);
+.player{
+    background-color:$white;
+    width: 100%;
+    height: 130px;
 }

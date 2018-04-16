@@ -7,15 +7,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./dist/main.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            /* background-color: #ffeff5; */
+        }
+        #logo {
+            margin: 22px;
+            width: 68px;
+            height: 68px;
+            background-color: #ff3b4e;
+            border: 4px solid #ffe2ed;
+        }
+    </style>
 
-<body>
-    <div id="z-music">你好</div>
-    <script src="./dist/zMusic.min.js"></script>
-    <script>
+    <body>
+        <div id="ct">
+            <div id="logo"></div>
+            <div id="z-music">
+                <div class="album-list">专辑列表1</div>
+                <div class="player">播放器</div>
+            </div>
+        </div>
+        <script src="./dist/zMusic.min.js"></script>
+        <script>
     //   var player=new zMusic({
     //       a:'初始配置信息'
     //   })
-    </script>
-</body>
+        </script>
+    </body>
 
 </html>
