@@ -15,12 +15,23 @@ $btn_hover:#d9dcdf;                      //按钮悬停
 
 //css
 /* ct做一个媒体查询 其他所有内容都更具ct定位 */
+
+// @media screen and (min-width : 540px){
+//     #ct{
+//         width:375px;
+//         height: 667px;
+//         background-color: $bgc;
+//         padding: 1px;
+//     }
+// }
+// @media(max-width: 540px) {}
 #ct{
     width: 100%;
     height: 100%;
     background-color: $bgc;
     padding: 1px;
 }
+
 .player{
     background-color:$white;
     width: 100%;
