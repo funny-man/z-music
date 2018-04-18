@@ -6,34 +6,133 @@ $red:#ff6e95;                            //主红
 $bgc:#ffeff5;                            //背景
 $translucent:rgba(255,255,255,0.4);      //播放面板半透明
 $line:#EBEBF2;                           //进度条
-$line_loading:#ff6e95;                   //加载进度条
-$font-1:#788389;                         //字体1
-$font-2:#dcd7db;                         //字体2
-$font-3:#e9c3d1;                         //字体3
+$line_loading:#ff5c889d;                   //加载进度条
+$font-1:#434b67; 
+$font-2:#788389;                         //字体1
+$font-3:#dcdee0;                         //字体2
+$font-4:#e9c3d1;                         //字体3
 $btn:#d9dcdf;                            //按钮
 $btn_hover:#d9dcdf;                      //按钮悬停
 
 //css
-/* ct做一个媒体查询 其他所有内容都更具ct定位 */
+//还是动态rem吧
 
-// @media screen and (min-width : 540px){
-//     #ct{
-//         width:375px;
-//         height: 667px;
-//         background-color: $bgc;
-//         padding: 1px;
-//     }
-// }
-// @media(max-width: 540px) {}
-#ct{
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
     width: 100%;
     height: 100%;
+    font-family:Arial,Helvetica,sans-serif;
+}
+#logo {
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 18px;
+}
+#logo::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    background-color: #ff3b4e;
+    border: 3px solid #ffe2ed;
+    padding: 3px;
+    border-radius: 50%;
+    background-image: url(../imgs/logo.png);
+}
+#logo p {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 22px;
+    font-weight: 600;
+    color:$font-1;
+    margin-left: 12px;
+    span{
+        font-weight: 600;
+        font-size: 12px;
+        background-color: $white;
+        border: 1px solid #b8c1c5;
+        margin-left: 11px;
+        padding: 2px 6px;
+        border-radius:4px;
+        position: relative;
+        top: -2px;
+        color:#b8c1c5;
+    }
+}
+#ct{
+    width: 100%;
+    height:100%;
     background-color: $bgc;
-    padding: 1px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#player{
+    background-color:$white;
+    text-align: center;
+    width: 344px;
+    // height: 292px;
+    margin: 21px auto 0 auto;
+    padding: 16px;
+    border-radius: 7px;
+    box-shadow: 0 6px 13px rgba(124, 30, 65,.4);
+    img{
+        display: block;
+        width: 134px;
+        margin: 0 auto;
+        border-radius: 50%;
+        box-shadow: 0 6px 13px rgba(124, 30, 65,.4);
+    }
+    h3{
+       margin-top: 13px;
+       color:$font-2;
+       font-size: 16px;
+       font-weight: 700;
+    }
+    p{
+        margin-top: 5px;
+        color: $font-3;
+        font-size: 10px;
+    }
+    .line{
+        width: 100%;
+        height: 3px;
+        margin-top: 20px;
+        background-color: $line;
+        border-radius: 1.5px;
+    }
+    .line-loading{
+        display: inline-block;
+        background-color: $line_loading;
+        font-size: 9px;
+        padding: 4px 9px;
+        border-radius: 40px;
+        color: rgba(255, 255, 255, 0.8);
+        position: relative;
+        top: -9px;
+        left:-90px;
+    }
+    .btns{
+        margin-top: 20px;
+    }
+    .btn{
+        width: 40px;
+        height: 40px;
+        background-color: $font-3;
+        display: inline-block;
+        border-radius: 50%;
+    }
 }
 
-.player{
-    background-color:$white;
-    width: 100%;
-    height: 130px;
+#album-list{
+    background-color: #fff;
+    margin-top: 20px;
 }

@@ -3,37 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=375px,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./dist/main.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            /* background-color: #ffeff5; */
-        }
-        #logo {
-            margin: 22px;
-            width: 68px;
-            height: 68px;
-            background-color: #ff3b4e;
-            border: 4px solid #ffe2ed;
-        }
     </style>
 
     <body>
         <div id="ct">
-            <div id="logo"></div>
             <div id="z-music">
-                <div class="album-list">专辑列表1</div>
-                <div class="player">播放器</div>
+                <div id="logo">
+                    <p>Music
+                        <span>V1.0</span>
+                    </p>
+                </div>
+                <div id="player">
+                    <img src="./src/imgs/music-photo.png" alt="music-photo">
+                    <h3>Nassun Dorma</h3>
+                    <p>Luciano Pavarottl</p>
+                    <div class="line">
+                        <div class="line-loading">1:30/4:30</div>
+                    </div>
+                    <div class="btns">
+                        <div class="btn loop"></div>
+                        <div class="btn play"></div>
+                        <div class="btn next"></div>
+                    </div>
+
+                </div>
+                <div id="album-list">专辑列表1</div>
+
             </div>
         </div>
         <script src="./dist/zMusic.min.js"></script>
