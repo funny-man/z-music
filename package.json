@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^8.3.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^6.2.4",
@@ -19,8 +20,17 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^1.1.11",
     "node-sass": "^4.8.3",
+    "postcss-loader": "^2.1.4",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "webpack": "^2.3.3"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie < 11",
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ]
 }
