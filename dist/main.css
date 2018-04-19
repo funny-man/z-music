@@ -95,7 +95,7 @@ body {
     border-radius: 1.5px; }
   #player .line-loading {
     display: inline-block;
-    background-color: #ff5c889d;
+    background-color: rgba(255, 110, 149, 0.8);
     font-size: 9px;
     padding: 4px 9px;
     border-radius: 40px;
@@ -143,7 +143,7 @@ body {
         margin-left: 33px;
         position: relative; }
         #album-list .list-ct ul > li h4 {
-          background-color: #ff438b8e;
+          background-color: rgba(255, 82, 143, 0.5);
           font-size: 15px;
           color: rgba(255, 255, 255, 0.658);
           padding: 4px 6px;

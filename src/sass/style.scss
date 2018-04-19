@@ -6,7 +6,7 @@ $red:#ff6e95;                            //主红
 $bgc:#ffeff5;                            //背景
 $translucent:rgba(255,255,255,0.4);      //播放面板半透明
 $line:#EBEBF2;                           //进度条
-$line_loading:#ff5c889d;                   //加载进度条
+$line_loading:rgba(255,110,149,0.8);                   //加载进度条
 $font-1:#434b67; 
 $font-2:#788389;                         //字体1
 $font-3:#dcdee0;                         //字体2
@@ -176,7 +176,7 @@ body {
                 margin-left: 33px;
                 position: relative;
                 h4{
-                    background-color:#ff438b8e;
+                    background-color:rgba(255, 82, 143, 0.5);
                     font-size: 15px;
                     color: rgba(255, 255, 255, 0.658);
                     padding: 4px 6px;
@@ -215,7 +215,7 @@ body {
                 right: -15px;
                 transform:translateY(-50%);
             }
-        }
+        } 
     }
 }
 .clearfi::after {content:""; display:block; clear:both;} 
