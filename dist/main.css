@@ -138,12 +138,46 @@ body {
     height: calc(100% + 18px); }
     #album-list .list-ct ul {
       width: 1000px; }
-      #album-list .list-ct ul li {
-        width: 115px;
-        height: 115px;
-        background-color: pink;
+      #album-list .list-ct ul > li {
         float: left;
+        margin-left: 33px;
+        position: relative; }
+        #album-list .list-ct ul > li h4 {
+          background-color: #ff438b8e;
+          font-size: 15px;
+          color: rgba(255, 255, 255, 0.658);
+          padding: 4px 6px;
+          border-radius: 3px;
+          position: absolute;
+          top: 14px;
+          left: -10px;
+          z-index: 2; }
+        #album-list .list-ct ul > li > div {
+          width: 115px;
+          height: 115px;
+          border-radius: 5px;
+          overflow: hidden;
+          -webkit-box-shadow: 0 6px 13px rgba(124, 30, 65, 0.4);
+                  box-shadow: 0 6px 13px rgba(124, 30, 65, 0.4);
+          position: relative; }
+          #album-list .list-ct ul > li > div img {
+            width: 100%;
+            position: relative;
+            z-index: 1; }
+      #album-list .list-ct ul > li:first-child {
         margin-left: 14px; }
+      #album-list .list-ct ul > li::after {
+        content: '';
+        display: inline-block;
+        width: 108px;
+        height: 108px;
+        background-color: #112633;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        right: -15px;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%); }
 
 .clearfi::after {
   content: "";

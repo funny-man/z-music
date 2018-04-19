@@ -16,13 +16,8 @@ $btn_hover:#d9dcdf;                      //按钮悬停
 $btn-a:#ff8338;                          //按钮渐变色
 $btn-b:#fd42ac;                          //按钮渐变色
 
-
 //css
 //还是动态rem吧
-
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -176,15 +171,51 @@ body {
         ul{
         
             width: 1000px;
-            li{
-                width: 115px;
-                height: 115px;
-                background-color: pink;
+            >li{
                 float: left;
+                margin-left: 33px;
+                position: relative;
+                h4{
+                    background-color:#ff438b8e;
+                    font-size: 15px;
+                    color: rgba(255, 255, 255, 0.658);
+                    padding: 4px 6px;
+                    border-radius: 3px;
+                    position: absolute;
+                    top:14px;
+                    left: -10px;
+                    z-index: 2;
+                }
+                >div{
+                    width: 115px;
+                    height: 115px;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    box-shadow: 0 6px 13px rgba(124, 30, 65,.4);
+                    position: relative;
+                    img{
+                        width: 100%;
+                        position: relative;
+                        z-index: 1;
+                    }
+                }
+            }
+            >li:first-child{
                 margin-left: 14px;
+            }
+            >li::after {
+                content: '';
+                display: inline-block;
+                width: 108px;
+                height: 108px;
+                background-color: #112633;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                right: -15px;
+                transform:translateY(-50%);
             }
         }
     }
-   
 }
 .clearfi::after {content:""; display:block; clear:both;} 
