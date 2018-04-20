@@ -86,6 +86,8 @@ body {
     padding: 16px;
     border-radius: 7px;
     box-shadow: 0 6px 13px rgba(124, 30, 65,.4);
+    overflow: hidden;
+    position: relative;
     .music-photo {
         display: block;
         width: 134px;
@@ -93,10 +95,14 @@ body {
         margin: 0 auto;
         border-radius: 50%;
         box-shadow: 0 6px 13px rgba(124, 30, 65,.4);
-        background-image: url(../imgs/music-photo.png);
-        background-position: center;
-        background-size:cover;
-        background-repeat: no-repeat;
+        // background-image: url(../imgs/music-photo.png);
+        // background-position: center;
+        // background-size:cover;
+        // background-repeat: no-repeat;
+        >img{
+            width: 100%;
+            border-radius: 50%;
+        }
     }
     h3{
        margin-top: 13px;
@@ -110,22 +116,33 @@ body {
         font-size: 10px;
     }
     .line{
-        width: 100%;
+        display: inline-block;
+        width: 270px;
         height: 3px;
         margin-top: 20px;
         background-color: $line;
         border-radius: 1.5px;
+        position: relative;
     }
     .line-loading{
+        width: 50%;
+        height: 3px;
+        background-color: rgb(202, 209, 214);
+        border-radius: 1.5px;
+    }
+    .play-time{
         display: inline-block;
         background-color: $line_loading;
         font-size: 9px;
         padding: 4px 9px;
         border-radius: 40px;
         color: rgba(255, 255, 255, 0.8);
-        position: relative;
-        top: -9px;
-        left:-90px;
+        position: absolute;
+        top: 50%;
+        left:0;
+        transform:translate(-50%,-50%);
+      
+      
     }
     .btns{
         margin-top: 20px;
@@ -156,6 +173,22 @@ body {
         img{
             display: inline-block;
             width: 100%;
+        }
+    }
+    .collect{
+        width: 80px;
+        height: 80px;
+        background-color: #ffe1ec;
+        border-radius: 50%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transform:translate(50%,50%);
+        >img{
+            width: 20px;
+            position: absolute;
+            top: 20%;
+            left: 20%;
         }
     }
 }
@@ -219,3 +252,4 @@ body {
     }
 }
 .clearfi::after {content:""; display:block; clear:both;} 
+.hide{display: none;}
