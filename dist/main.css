@@ -158,7 +158,8 @@ body {
   margin-top: 30px;
   overflow: hidden; }
   #album-list .list-ct {
-    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
     width: calc(100% + 18px);
     height: calc(100% + 18px); }
     #album-list .list-ct ul {
