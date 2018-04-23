@@ -1,3 +1,4 @@
+console.log('Z-Music 1.0')
 import '../sass/style.scss'
 let currency = require('./currency')
 let template = require('./template')
