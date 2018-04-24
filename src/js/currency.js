@@ -21,27 +21,53 @@ const currency = {
     //     return (percent * 100).toFixed(2) + '%';
     // },
     ajax: (option) => {//传入的option是一个对象包括url和回调函数
-        if (option.beforeSend) {
-            option.beforeSend();
+        if(option.beforeSend){
+            option.beforeSend()
         }
-        let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState == 4) {
-                if (xhr.readyState == 4 && (xhr.status == '200' || xhr.status == '304')) {
-                    let data = JSON.parse(xhr.responseText)
-                    if (option.success) {
-                        option.success(data);
-                    }
-                } else {
-                    if (option.fail) {
-                        option.fail(xhr.status);
+        let url=option.url
+        if(option.songId){
+            url+='?channel='+option.songId
+        }
+        console.log(url)
+        return new Promise(function (resolve, reject) {
+            let xhr = new XMLHttpRequest
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    if (xhr.readyState == 4 && (xhr.status >= '200' || xhr.status == '304')) {
+                        let data = JSON.parse(xhr.responseText)
+                        resolve(data)//当得到数据时候数据传入这个回调函数
+                    }else {
+                        reject(xhr.status);
                     }
                 }
             }
+            xhr.onerror=()=>{
+                reject('ajax error')//出现错误调用这个回调函数
+            }
+            xhr.open('get', url, true)
+            xhr.send()
+        })
 
-        };
-        xhr.open('GET', option.url);
-        xhr.send();
+
+
+        // let xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = () => {
+        //     if (xhr.readyState == 4) {
+        //         if (xhr.readyState == 4 && (xhr.status == '200' || xhr.status == '304')) {
+        //             let data = JSON.parse(xhr.responseText)
+        //             if (option.success) {
+        //                 option.success(data);
+        //             }
+        //         } else {
+        //             if (option.fail) {
+        //                 option.fail(xhr.status);
+        //             }
+        //         }
+        //     }
+
+        // };
+        // xhr.open('GET', option.url);
+        // xhr.send();
     }
 };
 module.exports = currency
