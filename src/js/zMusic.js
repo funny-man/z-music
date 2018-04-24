@@ -2,9 +2,9 @@ console.log('Z-Music 1.0')
 import '../sass/style.scss'
 let currency = require('./currency')
 
-const albumUrl = 'http://api.jirengu.com/fm/getChannels.php'
-const songUrl = 'http://api.jirengu.com/fm/getSong.php'
-const lyricUrl = 'http://api.jirengu.com/fm/getLyric.php'
+const albumUrl = '//api.jirengu.com/fm/getChannels.php'
+const songUrl = '//api.jirengu.com/fm/getSong.php'
+const lyricUrl = '//api.jirengu.com/fm/getLyric.php'
 class zMusic {
     constructor() {
         this.ct = document.getElementById('z-music')
