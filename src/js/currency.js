@@ -47,7 +47,7 @@ const currency = {
             xhr.open('get', url, true)
             xhr.send()
         })
-
+t
 
 
         // let xhr = new XMLHttpRequest();
