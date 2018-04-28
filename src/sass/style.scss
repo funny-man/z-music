@@ -105,13 +105,12 @@ body {
         display: block;
         width: 134px;
         height: 134px;
+        background-color: pink;
+        background-size:cover;
+        background-position: center center;
         margin: 0 auto;
         border-radius: 50%;
         box-shadow: 0 6px 13px rgba(124, 30, 65,.3);
-        >img{
-            width: 100%;
-            border-radius: 50%;
-        }
     }
     h3{
        margin-top: 13px;
@@ -163,26 +162,37 @@ body {
         display: inline-block;
         border-radius: 50%;
     }
-    .loop{
+    .random{
         margin-left: 0;
-        img{
-            display: inline-block;
-            width: 100%;
-        }
+        background-image: url(../imgs/random.png);
+        background-size:cover;
+        background-position: center center;
     }
+    .loop{
+        background-image: url(../imgs/loop.png);
+        background-size:cover;
+        background-position: center center;
+    }
+
     .play{
         background-image:radial-gradient(50px 50px at -4px  -4px,$btn-a,$btn-b);
         box-shadow: 0 6px 13px rgba(124, 30, 65,.4);
-        img{
-            display: inline-block;
+        >.icon-play{
             width: 100%;
+            height: 100%;
+            background-image: url(../imgs/play.png);
+            background-size:cover;
+            background-position: center center;
+        }
+        >.icon-pause{
+            background-image: url(../imgs/pause.png);
         }
     }
+
     .next{
-        img{
-            display: inline-block;
-            width: 100%;
-        }
+        background-image: url(../imgs/next.png);
+        background-size:cover;
+        background-position: center cente
     }
     .collect{
         width: 80px;
@@ -231,17 +241,13 @@ body {
                     width: 115px;
                     height: 115px;
                     background-color: pink;
+                    background-size:cover;
+                    background-position: center center;
                     border-radius: 5px;
                     overflow: hidden;
                     box-shadow: 0 6px 13px rgba(124, 30, 65,.4);
                     position: relative;
                     z-index: 1;
-                    img{
-                        width:100%;
-                        height:100%;
-                        position: relative;
-                        z-index: 2;
-                    }
                 }
             }
             >li:first-child{
