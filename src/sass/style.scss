@@ -110,7 +110,16 @@ body {
         background-position: center center;
         margin: 0 auto;
         border-radius: 50%;
-        box-shadow: 0 6px 13px rgba(124, 30, 65,.3);
+        box-shadow: 0 0 13px rgba(124, 30, 65,.3);
+        animation: 10s turn  linear infinite forwards;
+        animation-play-state: paused;
+    }
+    .disk{
+        animation-play-state: running;
+    }
+    @keyframes turn {
+        from { transform:rotate(0) }
+         to {transform:rotate(360deg)}
     }
     h3{
        margin-top: 13px;
@@ -133,7 +142,7 @@ body {
         position: relative;
     }
     .line-loading{
-        width: 50%;
+        width: 0;
         height: 3px;
         background-color: rgb(202, 209, 214);
         border-radius: 1.5px;
@@ -147,7 +156,7 @@ body {
         color: rgba(255, 255, 255, 0.8);
         position: absolute;
         top: 50%;
-        left:100px;
+        left:0;
         transform:translate(-50%,-50%);
       
       

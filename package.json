@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",
-    "watch":"webpack --watch"
-
+    "watch": "webpack --watch"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +20,7 @@
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^1.1.11",
-    "node-sass": "^4.8.3",
+    "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.4",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",

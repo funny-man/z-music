@@ -89,8 +89,31 @@ body {
     background-position: center center;
     margin: 0 auto;
     border-radius: 50%;
-    -webkit-box-shadow: 0 6px 13px rgba(124, 30, 65, 0.3);
-            box-shadow: 0 6px 13px rgba(124, 30, 65, 0.3); }
+    -webkit-box-shadow: 0 0 13px rgba(124, 30, 65, 0.3);
+            box-shadow: 0 0 13px rgba(124, 30, 65, 0.3);
+    -webkit-animation: 10s turn  linear infinite forwards;
+            animation: 10s turn  linear infinite forwards;
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused; }
+  #player .disk {
+    -webkit-animation-play-state: running;
+            animation-play-state: running; }
+
+@-webkit-keyframes turn {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes turn {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
   #player h3 {
     margin-top: 13px;
     color: #788389;
@@ -109,7 +132,7 @@ body {
     border-radius: 1.5px;
     position: relative; }
   #player .line-loading {
-    width: 50%;
+    width: 0;
     height: 3px;
     background-color: #cad1d6;
     border-radius: 1.5px; }
@@ -122,7 +145,7 @@ body {
     color: rgba(255, 255, 255, 0.8);
     position: absolute;
     top: 50%;
-    left: 100px;
+    left: 0;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%); }
   #player .btns {

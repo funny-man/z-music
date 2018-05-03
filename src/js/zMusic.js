@@ -99,9 +99,9 @@ class zMusic {
         // this.music.addEventListener('seeked', (e) => {
         //     // this.play();
         // });
-        // this.music.addEventListener('ended', (e) => {
-        //     // this.next();
-        // });
+        this.music.addEventListener('ended', (e) => {//当前歌曲播放结束触发
+            this.getMusic(this.albumIndex)
+        });
         //---
 
         this.dom.btn_play.addEventListener('click', () => {
@@ -131,12 +131,14 @@ class zMusic {
         if (this.music.paused) {
             this.music.play()
             this.dom.btn_play_icon.classList.add('icon-pause');
+            this.dom.player_music_photo.classList.add('disk');
         }
     }
     pause() {
         if (!this.music.paused) {
             this.music.pause()
             this.dom.btn_play_icon.classList.remove('icon-pause');
+            this.dom.player_music_photo.classList.remove('disk');
         }
     }
     playToggle() {
@@ -153,7 +155,7 @@ class zMusic {
             this.songData = data.song
             this.render_player()
             this.music.src = this.songData[0].url
-            this.music.play()
+            this.play()
         }, (err) => {
             console.log('获取歌曲好像出错了!状态码:' + err)
         })
