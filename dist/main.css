@@ -90,16 +90,12 @@ body {
     margin: 0 auto;
     border-radius: 50%;
     -webkit-box-shadow: 0 0 13px rgba(124, 30, 65, 0.3);
-            box-shadow: 0 0 13px rgba(124, 30, 65, 0.3);
-    -webkit-animation: 10s turn  linear infinite forwards;
-            animation: 10s turn  linear infinite forwards;
-    -webkit-animation-play-state: paused;
-            animation-play-state: paused; }
+            box-shadow: 0 0 13px rgba(124, 30, 65, 0.3); }
   #player .disk {
-    -webkit-animation-play-state: running;
-            animation-play-state: running; }
+    -webkit-animation: round 10s linear infinite;
+            animation: round 10s linear infinite; }
 
-@-webkit-keyframes turn {
+@-webkit-keyframes round {
   from {
     -webkit-transform: rotate(0);
             transform: rotate(0); }
@@ -107,7 +103,7 @@ body {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
-@keyframes turn {
+@keyframes round {
   from {
     -webkit-transform: rotate(0);
             transform: rotate(0); }
@@ -125,7 +121,7 @@ body {
     font-size: 10px; }
   #player .line {
     display: inline-block;
-    width: 270px;
+    width: 250px;
     height: 3px;
     margin-top: 20px;
     background-color: #EBEBF2;

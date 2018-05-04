@@ -51,6 +51,7 @@ class zMusic {
             btn_play_icon: this.ct.querySelector('.btns>.play>.icon-play'),
             btn_next: this.ct.querySelector('.btns>.next'),
             btn_random: this.ct.querySelector('.btns>.random'),
+            btn_collect: this.ct.querySelector('.btns>.collect'),
             time_cur: this.ct.querySelector('.line>.play-time>.cur'),
             time_total: this.ct.querySelector('.line>.play-time>.total'),
             player_h3: this.ct.querySelector('#player>h3'),
@@ -125,6 +126,12 @@ class zMusic {
                 this.getMusic(this.albumIndex)
             }
         });
+
+        //测试用按钮
+        this.dom.btn_collect.addEventListener('click', () => {
+            console.log('测试')
+            this.setTransform()
+        });
     }
 
     play() {
@@ -138,6 +145,7 @@ class zMusic {
         if (!this.music.paused) {
             this.music.pause()
             this.dom.btn_play_icon.classList.remove('icon-pause');
+            // this.setTransform()
             this.dom.player_music_photo.classList.remove('disk');
         }
     }
@@ -187,6 +195,13 @@ class zMusic {
         this.dom.player_music_photo.setAttribute("style", `background-image:url(${this.songData[0].picture})`);
         this.dom.player_h3.innerHTML=this.songData[0].title
         this.dom.player_p.innerHTML=this.songData[0].artist
+    }
+    setTransform(){
+        let _transform = getComputedStyle(this.dom.player_music_photo).transform;
+        console.log(_transform)
+        // this.dom.player_music_photo.style.transform = _transform === 'none'
+        // ? _transform
+        // : iTransform.concat(' ', cTransform);
     }
 }
 module.exports = zMusic

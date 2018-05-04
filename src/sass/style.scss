@@ -111,13 +111,12 @@ body {
         margin: 0 auto;
         border-radius: 50%;
         box-shadow: 0 0 13px rgba(124, 30, 65,.3);
-        animation: 10s turn  linear infinite forwards;
-        animation-play-state: paused;
+        // animation-play-state: paused;该属性用于设置动画的播放暂停使得每次播放都接着暂停的位置；由于ios无效所以使用其他方法
     }
     .disk{
-        animation-play-state: running;
+        animation: round 10s linear infinite;
     }
-    @keyframes turn {
+    @keyframes round {
         from { transform:rotate(0) }
          to {transform:rotate(360deg)}
     }
@@ -134,7 +133,7 @@ body {
     }
     .line{
         display: inline-block;
-        width: 260px;
+        width: 250px;
         height: 3px;
         margin-top: 20px;
         background-color: $line;
