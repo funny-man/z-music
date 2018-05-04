@@ -153,7 +153,7 @@ class zMusic {
             this.songData = data.song
             this.render_player()
             this.music.src = this.songData[0].url
-            this.music.play()
+            this.play()
         }, (err) => {
             console.log('获取歌曲好像出错了!状态码:' + err)
         })
