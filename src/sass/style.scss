@@ -6,7 +6,7 @@ $red:#ff6e95;                            //主红
 $bgc:#ffeff5;                            //背景
 $translucent:rgba(255,255,255,0.4);      //播放面板半透明
 $line:#EBEBF2;                           //进度条
-$line_loading:rgba(255,110,149,0.8);                   //加载进度条
+$loading:rgba(252, 95, 137, 0.8);                   //加载进度条
 $font-1:#434b67; 
 $font-2:#788389;                         //字体1
 $font-3:#dcdee0;                         //字体2
@@ -15,7 +15,6 @@ $btn:#d9dcdf;                            //按钮
 $btn_hover:#d9dcdf;                      //按钮悬停
 $btn-a:#ff8338;                          //按钮渐变色
 $btn-b:#fd42ac;                          //按钮渐变色
-
 //css
 //还是动态rem吧
 * {
@@ -101,24 +100,27 @@ body {
     box-shadow: 0 6px 13px rgba(124, 30, 65,.4);
     overflow: hidden;
     position: relative;
-    .music-photo {
-        display: block;
-        width: 134px;
-        height: 134px;
-        background-color: pink;
-        background-size:cover;
-        background-position: center center;
-        margin: 0 auto;
-        border-radius: 50%;
-        box-shadow: 0 0 13px rgba(124, 30, 65,.3);
-        // animation-play-state: paused;该属性用于设置动画的播放暂停使得每次播放都接着暂停的位置；由于ios无效所以使用其他方法
-    }
-    .disk{
-        animation: round 10s linear infinite;
-    }
-    @keyframes round {
-        from { transform:rotate(0) }
-         to {transform:rotate(360deg)}
+    .music-photo-ct{
+        .music-photo {
+            display: block;
+            width: 134px;
+            height: 134px;
+            background-color: pink;
+            background-size:cover;
+            background-position: center center;
+            margin: 0 auto;
+            border-radius: 50%;
+            box-shadow: 0 0 13px rgba(124, 30, 65,.3);
+            // animation-play-state: paused;该属性用于设置动画的播放暂停使得每次播放都接着暂停的位置；由于ios无效所以使用其他方法
+        }
+        .disk{
+            animation: round 10s linear infinite;
+        }
+        @keyframes round {
+            100% {
+                transform: rotate(1turn);
+              }
+        }
     }
     h3{
        margin-top: 13px;
@@ -132,10 +134,9 @@ body {
         font-size: 10px;
     }
     .line{
-        display: inline-block;
         width: 250px;
         height: 3px;
-        margin-top: 20px;
+        margin: 20px auto;
         background-color: $line;
         border-radius: 1.5px;
         position: relative;
@@ -145,20 +146,55 @@ body {
         height: 3px;
         background-color: rgb(202, 209, 214);
         border-radius: 1.5px;
+        transition: all 1s ;
     }
     .play-time{
         display: inline-block;
-        background-color: $line_loading;
+        background-color: rgba(7, 12, 25, 0.8);
         font-size: 9px;
         padding: 4px 9px;
         border-radius: 40px;
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(255, 255, 255, 0.4);
         position: absolute;
         top: 50%;
         left:0;
         transform:translate(-50%,-50%);
-      
-      
+        transition: all 1s ;
+        .loading:before{
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: -12px;
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            box-shadow: 0 6px 13px rgba(124, 30, 65,1);
+            animation: loaderg 3s ease-in-out infinite;
+        }
+        
+        .loading{
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            transform:translate(-50%,-50%);
+            // box-shadow: 0 6px 13px rgba(124, 30, 65,1);
+            animation: loaderm 3s ease-in-out infinite;
+        }
+        
+        .loading:after{
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 12px;
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            box-shadow: 0 6px 13px rgba(124, 30, 65,1);
+            animation: loaderd 3s ease-in-out infinite;
+        }
     }
     .btns{
         margin-top: 20px;
@@ -278,3 +314,51 @@ body {
 }
 .clearfix::after {content:""; display:block; clear:both;} 
 .hide{display: none;}
+
+//loading
+
+
+@-webkit-keyframes loaderg{
+	0%{background-color: rgba(252, 95, 137, 0.2);}
+	25%{background-color: rgba(252, 95, 137, 0.8);}
+	50%{background-color: rgba(252, 95, 137, 0.2);}
+	75%{background-color: rgba(252, 95, 137, 0.2);}
+	100%{background-color: rgba(252, 95, 137, 0.2);}
+}
+@keyframes loaderg{
+	0%{background-color: rgba(252, 95, 137, 0.2);}
+	25%{background-color: rgba(252, 95, 137, 0.8);}
+	50%{background-color: rgba(252, 95, 137, 0.2);}
+	75%{background-color: rgba(252, 95, 137, 0.2);}
+	100%{background-color: rgba(252, 95, 137, 0.2);}
+}
+
+@-webkit-keyframes loaderm{
+	0%{background-color: rgba(252, 95, 137, 0.2);}
+	25%{background-color: rgba(252, 95, 137, 0.2);}
+	50%{background-color: rgba(252, 95, 137, 0.8);}
+	75%{background-color: rgba(252, 95, 137, 0.2);}
+	100%{background-color: rgba(252, 95, 137, 0.2);}
+}
+@keyframes loaderm{
+	0%{background-color: rgba(252, 95, 137, 0.2);}
+	25%{background-color: rgba(252, 95, 137, 0.2);}
+	50%{background-color: rgba(252, 95, 137, 0.8);}
+	75%{background-color: rgba(252, 95, 137, 0.2);}
+	100%{background-color: rgba(252, 95, 137, 0.2);}
+}
+
+@-webkit-keyframes loaderd{
+	0%{background-color: rgba(252, 95, 137, 0.2);}
+	25%{background-color: rgba(252, 95, 137, 0.2);}
+	50%{background-color: rgba(252, 95, 137, 0.2);}
+	75%{background-color: rgba(252, 95, 137, 0.8);}
+	100%{background-color: rgba(252, 95, 137, 0.2);}
+}
+@keyframes loaderd{
+	0%{background-color: rgba(252, 95, 137, 0.2);}
+	25%{background-color: rgba(252, 95, 137, 0.2);}
+	50%{background-color: rgba(252, 95, 137, 0.2);}
+	75%{background-color: rgba(252, 95, 137, 0.8);}
+	100%{background-color: rgba(252, 95, 137, 0.2);}
+}

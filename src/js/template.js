@@ -2,12 +2,17 @@ function template() {
     
     let html = ` 
             <div id="player">
-                <div class="music-photo" style="background-image: url(${this.songData[0].picture});"></div>
+                <div class="music-photo-ct">
+                    <div class="music-photo" style="background-image: url(${this.songData[0].picture});"></div>
+                </div>
                 <h3>${this.songData[0].title}</h3>
                 <p>${this.songData[0].artist}</p>
                 <div class="line">
                     <div class="line-loading"></div>
-                    <div class="play-time"><span class="cur">--:--</span> / <span class="total">--:--</span></div>
+                    <div class="play-time">
+                        <div></div>
+                        <span class="cur">--:--</span>/<span class="total">--:--</span>
+                    </div>
                 </div>
                 <div class="btns">
                     <div class="btn random"></div>

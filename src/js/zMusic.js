@@ -17,6 +17,7 @@ class zMusic {
         this.music = new Audio()
 
         this.ct.innerHTML = '<div class="zmusic-loading"><p>LOADING...</p></div>';
+
         currency.ajax({
             url: albumUrl,
             beforeSend: () => { console.log('正在获取专辑数据') }
@@ -35,7 +36,6 @@ class zMusic {
             this.songData = data.song
             this.ct.innerHTML = template.call(this)
             this.music.src = this.songData[0].url
-            // this.music.play()
             this.init()
             this.bind()
         }, (err) => {
@@ -43,7 +43,6 @@ class zMusic {
         })
     }
     init() {
-        console.log('init')
         this.dom = {
             albums: this.ct.querySelectorAll('.list-ct>ul>li'),
             albumCt: this.ct.querySelector('.list-ct>ul'),
@@ -52,59 +51,53 @@ class zMusic {
             btn_next: this.ct.querySelector('.btns>.next'),
             btn_random: this.ct.querySelector('.btns>.random'),
             btn_collect: this.ct.querySelector('.btns>.collect'),
+            play_line: this.ct.querySelector('.line'),
+            play_line_loading: this.ct.querySelector('.line>.line-loading'),
+            play_time: this.ct.querySelector('.line>.play-time'),
+            play_loading: this.ct.querySelector('.line>.play-time>div'),
+            time: this.ct.querySelectorAll('.line>.play-time>span'),
             time_cur: this.ct.querySelector('.line>.play-time>.cur'),
             time_total: this.ct.querySelector('.line>.play-time>.total'),
             player_h3: this.ct.querySelector('#player>h3'),
             player_p: this.ct.querySelector('#player>p'),
-            player_music_photo: this.ct.querySelector('#player>.music-photo'),
-            
+            player_music_photo_ct: this.ct.querySelector('#player>.music-photo-ct'),
+            player_music_photo: this.ct.querySelector('#player>.music-photo-ct>.music-photo'),
         }
         this.layout()// 通过js设置album-list的宽度
     }
     bind() {
-        console.log('bind')
-        // this.updateLine = () => {
-        //     let percent = this.audio.buffered.length ? (this.audio.buffered.end(this.audio.buffered.length - 1) / this.audio.duration) : 0;
-        //     this.dom.timeline_loaded.style.width = Util.percentFormat(percent);
-        // };
-
         this.music.addEventListener('durationchange', (e) => { //duration属性（媒体总播放时间）改变触发
-            let dateStr=this.music.duration.toString()
-            console.log(dateStr)
+            let dateStr = this.music.duration.toString()
             this.dom.time_total.innerHTML = currency.getTime(dateStr)
         });
         let shouldUpdate = true
         this.music.addEventListener('timeupdate', (e) => {//currentTime（已播放时间）不合理或意外方式更新触发timeupdate事件,这个事件的触发频率由系统决定，但是会保证每秒触发4-66次
-            
             if (shouldUpdate) {
                 shouldUpdate = false
                 setTimeout(() => {
-                    let dateStr=this.music.currentTime.toString()
+                    let dateStr = this.music.currentTime.toString()
                     this.dom.time_cur.innerHTML = currency.getTime(dateStr)
+                    this.dom.play_time.style.left = this.music.currentTime / this.music.duration * 100 + '%'
                     shouldUpdate = true
                 }, 1000)
             }
-            // let percent = this.audio.currentTime / this.audio.duration;
-            // this.dom.timeline_played.style.width = Util.percentFormat(percent);
-            // this.dom.timetext_played.innerHTML = Util.timeFormat(this.audio.currentTime);
         });
-        // this.music.addEventListener('progress', (e) => { //正在下载
-        //     // this.updateLine();
-        // });
-        // this.music.addEventListener('canplay', (e) => { //缓存达到可以播放时候触发
-        //     // if(this.option.autoplay && !this.isMobile){
-        //     //     this.play();
-        //     // }
-        // });
-
-        // this.music.addEventListener('seeked', (e) => {
-        //     // this.play();
-        // });
+        this.music.addEventListener('progress', (e) => { //正在下载缓存
+            let percent = this.music.buffered.length ? (this.music.buffered.end(this.music.buffered.length - 1) / this.music.duration) : 0;
+            this.dom.play_line_loading.style.width = percent * 100 + '%'
+        });
+        this.music.addEventListener('waiting', (e) => { //没有数据而不能播放用来设置加载中动画
+            console.log('不能播放哦')
+            this.dom.play_loading.classList.add('loading');
+        });
+        this.music.addEventListener('canplay', (e) => { //缓存可以播放但是但是网速不好会停止删除加载动画
+            console.log('可以播放哦')
+            this.dom.play_loading.classList.remove('loading');
+        });
         this.music.addEventListener('ended', (e) => {//当前歌曲播放结束触发
             this.getMusic(this.albumIndex)
         });
         //---
-
         this.dom.btn_play.addEventListener('click', () => {
             this.playToggle()
         });
@@ -126,11 +119,18 @@ class zMusic {
                 this.getMusic(this.albumIndex)
             }
         });
-
+        this.dom.play_line.addEventListener('click', (event) => {
+            let e = event || window.event;
+            let percent = (e.clientX - currency.leftDistance(this.dom.play_line)) / this.dom.play_line.clientWidth;
+            if (!isNaN(this.music.duration)) {
+                this.dom.play_time.style.left = percent*100+'%';
+                this.dom.time_cur.innerHTML = currency.getTime(percent * this.music.duration);
+                this.music.currentTime = percent * this.music.duration;
+            }
+        });
         //测试用按钮
-        this.dom.btn_collect.addEventListener('click', () => {
+        this.dom.btn_collect.addEventListener('click', (event) => {
             console.log('测试')
-            this.setTransform()
         });
     }
 
@@ -145,7 +145,7 @@ class zMusic {
         if (!this.music.paused) {
             this.music.pause()
             this.dom.btn_play_icon.classList.remove('icon-pause');
-            // this.setTransform()
+            this.setTransform()
             this.dom.player_music_photo.classList.remove('disk');
         }
     }
@@ -187,21 +187,23 @@ class zMusic {
         let theCSS = style(this.dom.albums[1], null);
         let albumWidth = parseInt(theCSS.width)
         let albumMargin = parseInt(theCSS.marginLeft)
-        // console.log(theCSS)
         this.dom.albumCt.style.width = (albumTotal + 1) * (albumWidth + albumMargin) + 'px'
     }
 
-    render_player(){
+    render_player() {
         this.dom.player_music_photo.setAttribute("style", `background-image:url(${this.songData[0].picture})`);
-        this.dom.player_h3.innerHTML=this.songData[0].title
-        this.dom.player_p.innerHTML=this.songData[0].artist
+        this.dom.player_h3.innerHTML = this.songData[0].title
+        this.dom.player_p.innerHTML = this.songData[0].artist
     }
-    setTransform(){
-        let _transform = getComputedStyle(this.dom.player_music_photo).transform;
-        console.log(_transform)
-        // this.dom.player_music_photo.style.transform = _transform === 'none'
-        // ? _transform
-        // : iTransform.concat(' ', cTransform);
+    setTransform() {
+        let photoTransform = document.defaultView.getComputedStyle(this.dom.player_music_photo, null).transform;
+        let ctTransform = document.defaultView.getComputedStyle(this.dom.player_music_photo_ct, null).transform;
+        this.dom.player_music_photo_ct.style.transform = ctTransform === 'none'
+            ? photoTransform
+            : photoTransform.concat(ctTransform);
+        //String.concat(要添加的str)方法就是在原有的String添加一个的str组成一个新的str（通Array.concat一样）
+        //本质上是因为 CSS 里 transform 可以接受多种变换的叠加
+        //例如 this.dom.player_music_photo_ct.style.transform = 'matrix(0.904848, 0.425734, -0.425734, 0.904848, 0, 0)matrix(0.904848, 0.425734, -0.425734, 0.904848, 0, 0)'
     }
 }
 module.exports = zMusic
