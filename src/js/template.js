@@ -1,3 +1,6 @@
+let img= require('../imgs/collect-yes.png')
+
+
 function template() {
     
     let html = ` 
@@ -20,7 +23,7 @@ function template() {
                         <div class="icon-play"></div>
                     </div>
                     <div class="btn next"></div>
-                    <div class="collect"><img src="./src/imgs/collect-yes.png" alt=""></div>
+                    <div class="collect"><img src="./dist/${img}" alt=""></div>
                 </div>
             </div>
             <div id="album-list">

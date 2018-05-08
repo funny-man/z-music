@@ -208,14 +208,14 @@ body {
     }
     .random{
         margin-left: 0;
-        background-image: url(../imgs/random.png);
+        background-image: url(../imgs/icon.png);
         background-size:cover;
-        background-position: center center;
+        background-position:0 0;
     }
     .loop{
-        background-image: url(../imgs/loop.png);
+        background-image: url(../imgs/icon.png);
         background-size:cover;
-        background-position: center center;
+        background-position: -44px 0;
     }
 
     .play{
@@ -224,19 +224,21 @@ body {
         >.icon-play{
             width: 100%;
             height: 100%;
-            background-image: url(../imgs/play.png);
+            background-image: url(../imgs/icon.png);
             background-size:cover;
-            background-position: center center;
+            background-position: -87px 0;
+            // background-position: center center;
         }
         >.icon-pause{
-            background-image: url(../imgs/pause.png);
+            background-image: url(../imgs/icon.png);
+            background-position: -132px 0;
         }
     }
 
     .next{
-        background-image: url(../imgs/next.png);
+        background-image: url(../imgs/icon.png);
         background-size:cover;
-        background-position: center cente
+        background-position: -176px 0;
     }
     .collect{
         width: 80px;

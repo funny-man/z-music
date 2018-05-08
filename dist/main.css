@@ -186,13 +186,13 @@ body {
     border-radius: 50%; }
   #player .random {
     margin-left: 0;
-    background-image: url(random_A1at7DJ.png);
+    background-image: url(icon_zrDql2d.png);
     background-size: cover;
-    background-position: center center; }
+    background-position: 0 0; }
   #player .loop {
-    background-image: url(loop_1OqKvmJ.png);
+    background-image: url(icon_zrDql2d.png);
     background-size: cover;
-    background-position: center center; }
+    background-position: -44px 0; }
   #player .play {
     background-image: radial-gradient(50px 50px at -4px -4px, #ff8338, #fd42ac);
     -webkit-box-shadow: 0 6px 13px rgba(124, 30, 65, 0.4);
@@ -200,15 +200,16 @@ body {
     #player .play > .icon-play {
       width: 100%;
       height: 100%;
-      background-image: url(play_tI8TYrC.png);
+      background-image: url(icon_zrDql2d.png);
       background-size: cover;
-      background-position: center center; }
+      background-position: -87px 0; }
     #player .play > .icon-pause {
-      background-image: url(pause_lJbMIW0.png); }
+      background-image: url(icon_zrDql2d.png);
+      background-position: -132px 0; }
   #player .next {
-    background-image: url(next_2FvSrjt.png);
+    background-image: url(icon_zrDql2d.png);
     background-size: cover;
-    background-position: center cente; }
+    background-position: -176px 0; }
   #player .collect {
     width: 80px;
     height: 80px;
