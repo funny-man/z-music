@@ -5,6 +5,8 @@
 
 > 限制于接口能获取到的数据，播放器只能获取到专辑列表，每个专辑列表下的歌曲只能随机播放
 
+预览地址：[ http://zeeliu666.coding.me/zmusic]( http://zeeliu666.coding.me/zmusic)
+
 技术：
 
 > HTML5的Audio运用；ES6语法；sass;webpack环境搭建
