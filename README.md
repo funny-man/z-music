@@ -1,18 +1,30 @@
 # Z-music
-> 基于原生js写的一个小音乐播放器
-> 限制于接口能获取到的数据，播放器只能获取到专辑列表，每个专辑列表下的歌曲只能随机播放
+> 基于原生js和HTML5的Audio制作的一个音乐播放器
 
-## 项目预览
+# 功能
+
+- 下一曲
+- 播放暂停
+- 单曲循环
+- 歌曲时间精度/进度条
+- 点击精度条播放到指定位置
+- cd的旋转
+
+
+# 技术：
+
+项目基于原生js ES6语法
+用面向对象的方式编写
+css预编译选择用的sass
+html5的audio一些常用api
+基本的webpack搭建实现模块化编程
+
+# 项目预览
+
+扫码预览：![](http://olch1yuye.bkt.clouddn.com/18-8-17/94520231.jpg)
+
 预览地址：[ http://zeeliu666.coding.me/zmusic]( http://zeeliu666.coding.me/zmusic)
 
-## 技术栈
 
-- HTML5的Audio运用；
-- ES6语法；
-- sass
-- webpack配置模块化运用
-
-
-
-## 界面
+# 界面
 ![](http://olch1yuye.bkt.clouddn.com/18-5-6/99463575.jpg)
